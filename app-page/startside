@@ -17,6 +17,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            flex-direction: column;
             align-items: center;
         }
         #footer {
@@ -26,13 +27,17 @@
             text-align: center;
             padding: 10px;
         }
+        .form-container {
+            max-width: 500px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation menu at the top -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Logo</a>
+            <a class="navbar-brand" href="#"><img src="media/logo.webp" style="width:50px;height:50px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -54,23 +59,36 @@
 
     <!-- Main content area -->
     <div id="content" class="container">
-        <h1>Velkommen til min hjemmeside!</h1>
-        <p>Dette er en responsiv webside, der fungerer både på mobil og PC.</p>
-    </div>
-
-    <div>
-        <h2>Links</h2>
-        <a href="create_user.html">Opret bruger</a>
-        <a href="tilmeld.html">Tilmeld</a>
-        <a href="OpretAktivitet.html">Opret Aktivitet</a>
-        <a href="startside.dk">Startside</a>
+        <h1 class="mb-4">Opret Bruger</h1>
+        <form class="form-container">
+            <div class="mb-3">
+                <label for="birthdate" class="form-label">Fødselsdato:</label>
+                <input type="date" class="form-control" id="birthdate" placeholder="Indtast din alder">
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">By:</label>
+                <input type="text" class="form-control mb-2" id="city" placeholder="Indtast by">
+                <input type="text" class="form-control" id="municipality" placeholder="Indtast kommune">
+            </div>
+            <div class="mb-3">
+                <label for="profilePic" class="form-label">Profilbillede:</label>
+                <input type="file" class="form-control" id="profilePic" placeholder="Indsæt billede">
+                <small class="form-text text-muted">Ikke nødvendigt</small>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Brugernavn:</label>
+                <input type="text" class="form-control" id="username" placeholder="Indtast bruger">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Kode:</label>
+                <input type="password" class="form-control" id="password" placeholder="Indtast kode">
+            </div>
+        </form>
     </div>
 
     <!-- Footer with buttons -->
     <footer id="footer" class="bg-light">
-        <button type="button" class="btn btn-primary mx-2">Knap 1</button>
-        <button type="button" class="btn btn-secondary mx-2">Knap 2</button>
-        <button type="button" class="btn btn-success mx-2">Knap 3</button>
+        <button type="button" class="btn btn-primary mx-2">Opret bruger</button>
     </footer>
 
     <!-- Bootstrap JS -->
