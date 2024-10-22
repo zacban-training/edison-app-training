@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+
+#profilePic {
+    width: 50px; /* Juster størrelse på profilbillede */
+    border-radius: 50%; /* Gør billedet rundt */
+    margin-right: 10px;
+}
+
+#userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+#dateTime {
+    font-size: 18px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.image-container {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.main-image {
+    width: 100%; /* Billedet fylder hele bredden */
+    max-width: 800px; /* Juster maksimal bredde */
+    height: auto; /* Beholder billedets proportioner */
+}
+
+.info {
+    margin-top: 10px;
+}
+
+.user-comment {
+    margin: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
