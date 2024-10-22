@@ -69,3 +69,8 @@ footer {
     justify-content: space-around;
     margin-top: 20px;
 }
+.header-container {
+    display: flex;
+    align-items: center; /* Centrerer elementerne vertikalt */
+    gap: 15px; /* Tilføjer mellemrum mellem elementerne */
+}
