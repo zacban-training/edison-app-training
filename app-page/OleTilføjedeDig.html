@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dansende Mand</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        img {
+            width: 200px;
+            animation: dance 1s infinite;
+        }
+
+        @keyframes dance {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(20px); }
+            50% { transform: translateX(0); }
+            75% { transform: translateX(-20px); }
+            100% { transform: translateX(0); }
+        }
+
+        p {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        button {
+            background-color: white;
+            border: 2px solid #333;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://i.gifer.com/origin/f7/f7e3705a7ba4425137dfb78af39b9735_w200.webp" alt="Dansende mand">
+    <p>Personen tilføjede også dig</p>
+
+    <div class="button-container">
+       <a href="startside.html">
+        <button>Tilbage</button></a>
+    </div>
+
+</body>
+</html>
