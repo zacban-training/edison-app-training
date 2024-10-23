@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Razor_App.Data;
 
@@ -10,9 +11,11 @@ using Razor_App.Data;
 namespace Razor_App.Migrations
 {
     [DbContext(typeof(RazorAppDbContext))]
-    partial class RazorAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241023191952_ApplicationUserIdentity")]
+    partial class ApplicationUserIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -253,17 +256,6 @@ namespace Razor_App.Migrations
             modelBuilder.Entity("Razor_App.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<DateOnly>("DateOfBirth")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });

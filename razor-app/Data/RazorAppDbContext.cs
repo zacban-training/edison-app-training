@@ -8,7 +8,7 @@ using Razor_App.Models;
 
 namespace Razor_App.Data
 {
-    public class RazorAppDbContext : IdentityDbContext
+    public class RazorAppDbContext : IdentityDbContext<ApplicationUser>
     {
         public RazorAppDbContext (DbContextOptions<RazorAppDbContext> options)
             : base(options)
@@ -16,5 +16,6 @@ namespace Razor_App.Data
         }
 
         public DbSet<Razor_App.Models.UserEvent> UserEvent { get; set; } = default!;
+        public DbSet<Razor_App.Models.ApplicationUser> ApplicationUser { get; set; } = default!;
     }
 }
