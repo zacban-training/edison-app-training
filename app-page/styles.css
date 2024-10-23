@@ -74,3 +74,32 @@ footer {
     align-items: center; /* Centrerer elementerne vertikalt */
     gap: 15px; /* Tilføjer mellemrum mellem elementerne */
 }
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF; /* Blå baggrund */
+    text-decoration: none; /* Ingen understregning */
+    border-radius: 5px; /* Runde hjørner */
+    text-align: center; /* Centrerer teksten */
+}
+
+.button:hover {
+    background-color: #0056b3; /* Mørkere blå ved hover */
+}
+.footer-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007BFF; /* Blå baggrund */
+    text-decoration: none; /* Ingen understregning */
+    border-radius: 5px; /* Runde hjørner */
+    margin: 5px; /* Mellemrum mellem knapperne */
+    text-align: center; /* Centrerer teksten */
+}
+
+.footer-button:hover {
+    background-color: #0056b3; /* Mørkere blå ved hover */
+}
