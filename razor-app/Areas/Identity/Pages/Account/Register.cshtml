@@ -36,6 +36,16 @@
                 <label asp-for="Input.BirthDate">Fødselsdato</label>
                 <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
             </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.City" class="form-control" autocomplete="city" aria-required="true" placeholder="By" />
+                <label asp-for="Input.City">By</label>
+                <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Municipal" class="form-control" autocomplete="municipal" aria-required="true" placeholder="Kommune" />
+                <label asp-for="Input.Municipal">Kommune</label>
+                <span asp-validation-for="Input.Municipal" class="text-danger"></span>
+            </div>
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
