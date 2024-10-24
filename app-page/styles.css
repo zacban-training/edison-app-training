@@ -69,3 +69,98 @@ footer {
     justify-content: space-around;
     margin-top: 20px;
 }
+<footer>
+  <style>
+    .myButton {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</footer>
+<body>
+  <button class="myButton">Grøn knap</button>
+</body>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.weather {
+    font-size: 18px;
+    text-align: right;
+}
+
+.sport {
+    background-color: #007bff;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sport h2 {
+    margin: 0 0 10px;
+}
+
+.tennis-content, .football-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tennis-img, .football-img {
+    font-size: 50px;
+}
+
+.score {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.player-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
