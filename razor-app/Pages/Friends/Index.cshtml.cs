@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Razor_App.Data;
 using Razor_App.Models;
 
-namespace Razor_App.Pages_Events
+namespace Razor_App.Pages_Friends
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace Razor_App.Pages_Events
             _context = context;
         }
 
-        public IList<UserEvent> UserEvent { get;set; } = default!;
+        public IList<ApplicationUser> ApplicationUser { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            UserEvent = await _context.UserEvent.ToListAsync();
+            ApplicationUser = await _context.ApplicationUser.ToListAsync();
         }
     }
 }

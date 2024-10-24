@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -73,9 +74,10 @@ namespace Razor_App.Areas.Identity.Pages.Account
         {
 
             [Required]
-            [EmailAddress]
+            [MinLength(5)]
             [Display(Name = "Brugernavn")]
             public string UserName { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -85,6 +87,10 @@ namespace Razor_App.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
+            [Required]
+            [DataType(DataType.Date)]
+            [Display(Name = "Fødselsdag")]
+            public DateOnly BirthDate { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
