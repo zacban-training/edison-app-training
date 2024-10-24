@@ -1,0 +1,60 @@
+@page
+@model Razor_App.Pages_Events.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>UserEvent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserEvent.Id" />
+            <div class="form-group">
+                <label asp-for="UserEvent.Name" class="control-label"></label>
+                <input asp-for="UserEvent.Name" class="form-control" />
+                <span asp-validation-for="UserEvent.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEvent.PictureURL" class="control-label"></label>
+                <input asp-for="UserEvent.PictureURL" class="form-control" />
+                <span asp-validation-for="UserEvent.PictureURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEvent.EventDate" class="control-label"></label>
+                <input asp-for="UserEvent.EventDate" class="form-control" />
+                <span asp-validation-for="UserEvent.EventDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEvent.CreatedDate" class="control-label"></label>
+                <input asp-for="UserEvent.CreatedDate" class="form-control" />
+                <span asp-validation-for="UserEvent.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEvent.Location" class="control-label"></label>
+                <input asp-for="UserEvent.Location" class="form-control" />
+                <span asp-validation-for="UserEvent.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEvent.Description" class="control-label"></label>
+                <input asp-for="UserEvent.Description" class="form-control" />
+                <span asp-validation-for="UserEvent.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
