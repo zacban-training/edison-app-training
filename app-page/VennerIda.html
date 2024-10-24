@@ -137,15 +137,23 @@
     </div>
 
     <div class="button-container">
-        <button class="button">Hjem</button>
-        <button class="button">Events</button>
+        <button class="button" id="home">Hjem</button>
+        <button class="button" id="events">Events</button>
     </div>
 
     <script>
         // Script til at vise dato og klokkeslæt
         const dateElement = document.getElementById('date');
         const timeElement = document.getElementById('time');
+        const homebtn = document.getElementById('home');
+        const homebtn = document.getElementById('events');
 
+        homebtn.addEventListener('click', (e) => {
+            document.location.href = './startside.html';
+        })
+        homebtn.addEventListener('click', (e) => {
+            document.location.href = './aktivitetervenner.html';
+        })
         const updateDateTime = () => {
             const now = new Date();
             dateElement.textContent = now.toLocaleDateString('da-DK');
