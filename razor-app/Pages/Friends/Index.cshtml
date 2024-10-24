@@ -1,0 +1,52 @@
+@page
+@model Razor_App.Pages_Friends.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUser[0].UserName)
+            </th>
+            <th>
+                Alder
+            </th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ApplicationUser)
+        {
+            <tr>
+                <td><i class="bi bi-person-circle"></i></td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @* @Model.BeregnAlder(item.DateOfBirth) *@
+                </td>
+                
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
