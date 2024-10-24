@@ -169,3 +169,48 @@ body, html {
     margin: 0 15px;
 }
 </style>
+button {
+    margin: 10px; /* Juster værdien som ønskes */
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Grøn baggrund */
+    color: white; /* Hvid tekst */
+    text-align: center;
+    text-decoration: none; /* Fjern understregning */
+    border-radius: 5px; /* Runde kanter */
+    margin: 10px; /* Plads mellem knapperne */
+}
+
+.button:hover {
+    background-color: #45a049; /* Mørkere grøn ved hover */
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Grøn baggrund */
+    color: white; /* Hvid tekst */
+    text-align: center;
+    text-decoration: none; /* Fjern understregning */
+    border-radius: 5px; /* Runde kanter */
+    margin: 10px; /* Plads mellem knapperne */
+}
+
+.button:hover {
+    background-color: #45a049; /* Mørkere grøn ved hover */
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Grøn baggrund */
+    color: white; /* Hvid tekst */
+    text-align: center;
+    text-decoration: none; /* Fjern understregning */
+    border-radius: 5px; /* Runde kanter */
+    margin: 10px; /* Plads mellem knapperne */
+}
+
+.button:hover {
+    background-color: #45a049; /* Mørkere grøn ved hover */
+}

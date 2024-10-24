@@ -88,10 +88,16 @@
 
     <!-- Footer with buttons -->
     <footer id="footer" class="bg-light">
-        <button type="button" class="btn btn-primary mx-2">Opret bruger</button>
+        <button type="button" id="createuser"  class="btn btn-primary mx-2">Opret bruger</button>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<script>
+    const createUser = document.getElementById('createuser');
+    createUser.addEventListener('click', (e) => {
+        document.location.href = 'startside.html';
+    })
+</script>
 </html>
