@@ -19,11 +19,25 @@ namespace Razor_App.Pages_Friends
             _context = context;
         }
 
-        public IList<ApplicationUser> ApplicationUser { get;set; } = default!;
+        public IList<ApplicationUser> ApplicationUser { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
             ApplicationUser = await _context.ApplicationUser.ToListAsync();
+        }
+
+        public int BeregnAlder(DateOnly fødselsdato)
+        {
+            DateOnly nu = DateOnly.FromDateTime(DateTime.Today);
+            int alder = nu.Year - fødselsdato.Year;
+
+            // Hvis fødselsdagen ikke er passeret i indeværende år, trækkes et år fra
+            if (fødselsdato > nu.AddYears(-alder))
+            {
+                alder--;
+            }
+
+            return alder;
         }
     }
 }
