@@ -14,19 +14,19 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ApplicationUser.FirstName" class="control-label"></label>
-                <input asp-for="ApplicationUser.FirstName" class="form-control" />
-                <span asp-validation-for="ApplicationUser.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ApplicationUser.LastName" class="control-label"></label>
-                <input asp-for="ApplicationUser.LastName" class="form-control" />
-                <span asp-validation-for="ApplicationUser.LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ApplicationUser.DateOfBirth" class="control-label"></label>
                 <input asp-for="ApplicationUser.DateOfBirth" class="form-control" />
                 <span asp-validation-for="ApplicationUser.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationUser.City" class="control-label"></label>
+                <input asp-for="ApplicationUser.City" class="form-control" />
+                <span asp-validation-for="ApplicationUser.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationUser.Municipal" class="control-label"></label>
+                <input asp-for="ApplicationUser.Municipal" class="form-control" />
+                <span asp-validation-for="ApplicationUser.Municipal" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ApplicationUser.Id" class="control-label"></label>
