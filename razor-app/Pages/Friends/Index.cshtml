@@ -8,21 +8,16 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="./Index">Tilbage</a>
+    <a asp-page="Create">Ny ven</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>&nbsp;</th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApplicationUser[0].DateOfBirth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApplicationUser[0].UserName)
-            </th>
-            <th>
-                Alder
-            </th>
+            <th>Fødselsdato</th>
+            <th>Brugernavn</th>
+            <th>Alder</th>
             <th>&nbsp;</th>
         </tr>
     </thead>
@@ -38,7 +33,7 @@
                     @Html.DisplayFor(modelItem => item.UserName)
                 </td>
                 <td>
-                    @* @Model.BeregnAlder(item.DateOfBirth) *@
+                    @Model.BeregnAlder(item.DateOfBirth)
                 </td>
                 
                 <td>

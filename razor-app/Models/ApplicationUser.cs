@@ -9,10 +9,9 @@ namespace Razor_App.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string FirstName { get; set; } = default!;
-        public string LastName { get; set; } = default!;
-
         [DataType(DataType.Date)]
         public DateOnly DateOfBirth { get; set; }
+        public string City {get; set;} = string.Empty;
+        public string Municipal {get; set;} = string.Empty;
     }
 }
