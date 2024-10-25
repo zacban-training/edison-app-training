@@ -132,18 +132,9 @@
 </head>
 <body>
     <h1 id="tilbage"></h1>
-    <button id="changeFontButton">Ændre skrifttype</button>
+   
+    <
 
-    <script>
-        // Funktion til at ændre skrifttype
-        function changeFont() {
-            const title = document.getElementById("title");
-            title.style.fontFamily = "'Roboto', sans-serif"; // Ændrer skrifttype til Roboto
-            title.style.color = "#4CAF50"; // Ændrer tekstfarven (valgfrit)
-        }
-
-        // Tilføj event listener til knappen
-        document.getElementById("changeFontButton").addEventListener("click", changeFont);
     </script>
 </body>
 </html>
@@ -152,11 +143,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tilbage og Venner</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Text i nederste venstre hjørne</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh; /* Giver siden en fuld højde */
+            position: relative; /* Gør det muligt at placere elementer relativt */
+        }
+        #text {
+            position: absolute; /* Placerer teksten absolut i forhold til body */
+            bottom: 10px; /* Afstand fra bunden */
+            left: 10px; /* Afstand fra venstre */
+            background-color: rgba(255, 255, 255, 0.8); /* Baggrundsfarve med gennemsigtighed */
+            padding: 5px; /* Lidt polstring */
+            border-radius: 5px; /* Rundede hjørner */
+        }
+    </style>
 </head>
 <body>
-    <div id="tilbage">Tilbage</div>
-    <div id="venner">Venner</div>
+
+<div id="text">Dette er tekst i nederste venstre hjørne.</div>
+
+<script>
+    // Du kan ændre teksten med JavaScript, hvis det er nødvendigt
+    document.getElementById('text').innerText = "Ny tekst her!";
+</script>
+
 </body>
 </html>

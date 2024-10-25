@@ -1,4 +1,5 @@
 ﻿@page
+@using Razor_App.Areas.Identity.Pages.Account
 @model RegisterModel
 @{
     ViewData["Title"] = "Opret Konto";
@@ -12,7 +13,7 @@
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="brugernan" />
+                <input asp-for="Input.UserName" class="form-control" autocomplete="username" aria-required="true" placeholder="brugernavn" />
                 <label asp-for="Input.UserName">Brugernavn</label>
                 <span asp-validation-for="Input.UserName" class="text-danger"></span>
             </div>
