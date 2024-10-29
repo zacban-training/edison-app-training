@@ -4,26 +4,35 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav" style="width:100%;">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="bi bi-person-circle"></i> @UserManager.GetUserName(User)!</a>
-    </li>
-    <li class="nav-item"><div id="dateTime"></div></li>
-    <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
-        </form>
-    </li>
+    <div class="logo-small" style="display:flex;flex-direction:row; gap:.5rem;align-items:center;">
+        <img src="~/media/logo.webp" alt="logo" style="width:75px" />
+        <div class="pacifico-regular logo-text" style="font-size:1.75rem;">Friendl<span style="color:#CC0000">y</span></div>
+    </div>
 }
-else
-{
-    <li class="nav-item" style="margin-left: auto;">
-        <a class="btn btn-success rounded-pill px-3" id="register" asp-area="Identity" asp-page="/Account/Register">Opret <i class="bi bi-person-fill-add"></i></a>
-    </li>
-    @* <li class="nav-item">
-        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li> *@
-}
+<ul class="navbar-nav" style="width:100%;">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i
+                    class="bi bi-person-circle"></i> @UserManager.GetUserName(User)!</a>
+        </li>
+        <li class="nav-item">
+            <div id="dateTime"></div>
+        </li>
+        <li class="nav-item">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
+                asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item" style="margin-left: auto;">
+            <a class="btn btn-success rounded-pill px-3" id="register" asp-area="Identity"
+                asp-page="/Account/Register">Opret <i class="bi bi-person-fill-add"></i></a>
+        </li>
+    }
 </ul>
