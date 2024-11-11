@@ -86,15 +86,7 @@
             </div>
 
             <!-- Upload billede -->
-            <!DOCTYPE html>
-<html lang="da">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload og vis billede</title>
-</head>
-<body>
-
+<div>
   <h2>Upload et billede</h2>
   
   <!-- Filinput til at vælge billedet -->
@@ -103,32 +95,6 @@
   <!-- Et img-tag til at vise det uploadede billede -->
   <br><br>
   <img id="preview" src="" alt="Dit billede vil blive vist her" style="max-width: 500px; display: none;">
-
-  <script>
-    // JavaScript til at håndtere filupload og forhåndsvisning
-    document.getElementById('upload').addEventListener('change', function(event) {
-      const file = event.target.files[0];  // Få fat i den uploadede fil
-      if (file) {
-        const reader = new FileReader();   // Opret en FileReader til at læse billedet
-        
-        reader.onload = function(e) {
-          // Sæt src-attributten på img-tagget til filens data-URL
-          const imgElement = document.getElementById('preview');
-          imgElement.src = e.target.result;
-          imgElement.style.display = 'block';  // Vis billedet
-        };
-        
-        reader.readAsDataURL(file);  // Læs filen som en data-URL
-      }
-    });
-  </script>
-
-</body>
-</html>
-
-
-
-
             </div>
 
             <!-- Dato og tid -->
@@ -178,6 +144,24 @@
             document.location.href = 'startside.html';
         });
     </script>
+    <script>
+        // JavaScript til at håndtere filupload og forhåndsvisning
+        document.getElementById('upload').addEventListener('change', function(event) {
+          const file = event.target.files[0];  // Få fat i den uploadede fil
+          if (file) {
+            const reader = new FileReader();   // Opret en FileReader til at læse billedet
+            
+            reader.onload = function(e) {
+              // Sæt src-attributten på img-tagget til filens data-URL
+              const imgElement = document.getElementById('preview');
+              imgElement.src = e.target.result;
+              imgElement.style.display = 'block';  // Vis billedet
+            };
+            
+            reader.readAsDataURL(file);  // Læs filen som en data-URL
+          }
+        });
+      </script>
 </body>
 
 </html>

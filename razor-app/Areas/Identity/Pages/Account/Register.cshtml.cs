@@ -78,6 +78,10 @@ namespace Razor_App.Areas.Identity.Pages.Account
             [Display(Name = "Brugernavn")]
             public string UserName { get; set; }
 
+            [Required]
+            [Display(Name = "By")]
+            public string City { get; set; }
+
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -109,6 +113,9 @@ namespace Razor_App.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required(ErrorMessage = "Kommune skal udfyldes")]
+            public string Municipal { get; set; } = string.Empty;
         }
 
 
@@ -125,6 +132,10 @@ namespace Razor_App.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
+                user.City = Input.City;
+                user.Municipal = Input.Municipal;
+                user.DateOfBirth = Input.BirthDate;
+                
 
                 await _userStore.SetUserNameAsync(user, Input.UserName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

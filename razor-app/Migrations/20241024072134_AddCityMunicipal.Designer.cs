@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Razor_App.Data;
 
@@ -10,9 +11,11 @@ using Razor_App.Data;
 namespace Razor_App.Migrations
 {
     [DbContext(typeof(RazorAppDbContext))]
-    partial class RazorAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241024072134_AddCityMunicipal")]
+    partial class AddCityMunicipal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -224,32 +227,6 @@ namespace Razor_App.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Razor_App.Models.Friendship", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FriendId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FriendId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Friendship");
-                });
-
             modelBuilder.Entity("Razor_App.Models.UserEvent", b =>
                 {
                     b.Property<int>("Id")
@@ -331,32 +308,6 @@ namespace Razor_App.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Razor_App.Models.Friendship", b =>
-                {
-                    b.HasOne("Razor_App.Models.ApplicationUser", "Friend")
-                        .WithMany("FriendOf")
-                        .HasForeignKey("FriendId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Razor_App.Models.ApplicationUser", "User")
-                        .WithMany("Friendships")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Friend");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Razor_App.Models.ApplicationUser", b =>
-                {
-                    b.Navigation("FriendOf");
-
-                    b.Navigation("Friendships");
                 });
 #pragma warning restore 612, 618
         }
