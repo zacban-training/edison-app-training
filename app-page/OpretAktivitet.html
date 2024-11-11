@@ -178,6 +178,7 @@
         activity.name = document.querySelector("#aktivitetNavn").value,
         activity.time = document.querySelector("#aktivitetTid").value,
         activity.location = document.querySelector("#aktivitetSted").value,
+        activity.age = document.querySelector("#aktivitetAlder").value,
         activity.description = document.querySelector("#aktivitetBeskrivelse").value;
 
         var activities = JSON.parse(localStorage.getItem("activities")) || [];
