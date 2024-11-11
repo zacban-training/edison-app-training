@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,14 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
             margin: 0;
             display: flex;
             flex-direction: column;
         }
+
         #content {
             flex: 1;
             display: flex;
@@ -20,6 +23,7 @@
             flex-direction: column;
             align-items: center;
         }
+
         #footer {
             position: relative;
             bottom: 0;
@@ -27,30 +31,27 @@
             text-align: center;
             padding: 10px;
         }
+
         .form-container {
             max-width: 500px;
             width: 100%;
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation menu at the top -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="media/logo.webp" style="width:50px;height:50px;"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Hjem</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Om</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kontakt</a>
+
                     </li>
                 </ul>
             </div>
@@ -62,11 +63,12 @@
         <h1 class="mb-4">Opret Bruger</h1>
         <form class="form-container">
             <div class="mb-3">
+                <div required="required"></div>
                 <label for="birthdate" class="form-label">Fødselsdato:</label>
                 <input type="date" class="form-control" id="birthdate" placeholder="Indtast din alder">
             </div>
             <div class="mb-3">
-                <label for="city" class="form-label">By:</label> 
+                <label for="city" class="form-label">By:</label>
                 <input type="text" class="form-control mb-2" id="city" placeholder="Indtast by">
                 <input type="text" class="form-control" id="municipality" placeholder="Indtast kommune">
             </div>
@@ -82,13 +84,13 @@
             <div class="mb-3">
                 <label for="password" class="form-label">Kode:</label>
                 <input type="password" class="form-control" id="password" placeholder="Indtast kode">
-            </div>  
+            </div>
         </form>
     </div>
 
     <!-- Footer with buttons -->
     <footer id="footer" class="bg-light">
-        <button type="button" id="createuser"  class="btn btn-primary mx-2">Opret bruger</button>
+        <button type="button" id="createuser" class="btn btn-primary mx-2">Opret bruger</button>
     </footer>
 
     <!-- Bootstrap JS -->
@@ -98,9 +100,15 @@
 <script>
     const btnCreateUser = document.getElementById('createuser');
     btnCreateUser.addEventListener('click', (e) => {
-        createUser();
-        login();
-        document.location.href = 'startside.html';
+        if (isOldEnough()) {
+            createUser();
+            login();
+            document.location.href = 'startside.html';
+        }
+        else {
+            alert(`du skal være ${minAge} år for at oprette en bruger`)
+        }
     })
 </script>
+
 </html>
