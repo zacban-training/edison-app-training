@@ -37,14 +37,21 @@ let users = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('use
 
 console.dir(users);
 
+function getUser(id) {
+    return users.find(u => u.userid === id);
+}
+
 function createUser() {
     let user = users.find(u => u.username === username && u.password === password);
     if (user) {
         // alert('User already exists');
         return;
     }
+
+    const maxId = users.reduce((max, user) => (user.id > max ? user.id : max), 0);
     
     user = {
+        userid: maxId + 1,
         username: document.getElementById('username').value,
         password: document.getElementById('password').value,
         birthdate: document.getElementById('birthdate').value,
