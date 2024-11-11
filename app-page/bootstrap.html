@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Test Brugere</title>
+</head>
+<body>
+    <h2>Generér Test Brugere</h2>
+    <button onclick="generateTestUsers()">Generér Brugere</button>
+
+    <script>
+        const maleNames = ["Anders", "Thomas", "Mikkel", "Nikolaj", "Kasper", "Søren", "Peter"];
+        const femaleNames = ["Anna", "Camilla", "Ida", "Sofie", "Maja", "Line", "Maria"];
+        const cities = ["København", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Randers", "Vejle"];
+        const municipalities = ["København", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Randers", "Vejle"];
+        
+        function getRandomDate(start, end) {
+            const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+            return date.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+        }
+
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generateTestUsers() {
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            const totalUsers = 10; // Antal testbrugere, der skal oprettes
+
+            for (let i = 0; i < totalUsers; i++) {
+                const isMale = Math.random() > 0.5;
+                const firstName = isMale ? getRandomElement(maleNames) : getRandomElement(femaleNames);
+                const username = `${firstName}${Math.floor(Math.random() * 1000)}`; // Unikt brugernavn
+                const birthdate = getRandomDate(new Date(1980, 0, 1), new Date(2010, 11, 31));
+                const city = getRandomElement(cities);
+                const municipality = getRandomElement(municipalities);
+                
+                const maxId = users.reduce((max, user) => (user.userid > max ? user.userid : max), 0);
+                const user = {
+                    userid: maxId + 1,
+                    username: username,
+                    password: "test1234", // Standard test-adgangskode
+                    birthdate: birthdate,
+                    city: city,
+                    municipality: municipality
+                };
+                
+                users.push(user);
+            }
+
+            localStorage.setItem("users", JSON.stringify(users));
+            alert(`${totalUsers} testbrugere er blevet genereret og gemt i localStorage.`);
+            console.log("Generated Users:", users);
+        }
+    </script>
+</body>
+</html>

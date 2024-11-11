@@ -1,142 +1,177 @@
 <!DOCTYPE html>
 <html lang="da">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsiv side</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
+        * {
+            box-sizing: border-box;
         }
-        #content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-        }
-        #footer {
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            padding: 10px;
-        }
-        .form-container {
-            max-width: 500px;
-            width: 100%;
-        }
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      #content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      #footer {  
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+      .form-container {
+        max-width: 500px;
+        width: 100%;
+      }
 
-        .activity {
-            position: relative;
-            text-align: center;
-            margin: 20px;
-        }
-        .activity img {
-            width: 300px; /* Ændr størrelse efter behov */
-            height: auto;
-        }
-        .text-overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 24px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        }
-        .info {
-            margin-top: 10px;
-        }
-        .info span {
-            margin: 0 15px;
-        }
+      .activity {
+        box-sizing: border-box;
+        width: 300px;
+        position: relative;
+        text-align: center;
+        /* margin: 20px; */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .activity img {
+        width: 100%; /* Ændr størrelse efter behov */
+        height: auto;
+      }
+      .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+      .info {
+        margin-top: 10px;
+      }
+      .info span {
+        margin: 0 15px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation menu at the top -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="media/profile.png" style="width:50px;height:50px;margin-right:10px"><span id="username_display"></span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><div id="dateTime"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="OpretAktivitet.html">
-                            <button type="button" class="btn btn-primary mx-5">+Opret</button></a>
-
-                    </li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img
+            src="media/profile.png"
+            style="width: 50px; height: 50px; margin-right: 10px" /><span
+            id="username_display"
+          ></span
+        ></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><div id="dateTime"></div> </a>
+            </li>
+            <li class="nav-item">
+              <a href="OpretAktivitet.html">
+                <button type="button" class="btn btn-primary mx-5">
+                  +Opret
+                </button></a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Main content area -->
-
+<div id="content">
     <div class="activity">
-        <img src="media/Cykeltur.jpg" alt="Cykel">
-        <div class="text-overlay">Cykeltur</div>
-        <div class="info">
-            <span>Tidspunkt: 10:00</span>
-            <span>Sted: Parken</span>
-            <span>Alder: 25</span>
-        </div>
+      <img src="media/Cykeltur.jpg" alt="Cykel" />
+      <div class="text-overlay">Cykeltur</div>
+      <div class="info">
+        <span>Tidspunkt: 10:00</span>
+        <span>Sted: Parken</span>
+        <span>Alder: 25</span>
+      </div>
     </div>
 
     <div class="activity">
-        <a href="tilmeld.html">
-        <img src="media/Badminton.jpg" alt="Badminton"></a>
-        <div class="text-overlay">Badminton</div>
-        <div class="info">
-            <span>Tidspunkt: 14:00</span>
-            <span>Sted: Sportshal</span>
-            <span>Alder: 25</span>
-        </div>
+      <a href="tilmeld.html">
+        <img src="media/Badminton.jpg" alt="Badminton"
+      /></a>
+      <div class="text-overlay">Badminton</div>
+      <div class="info">
+        <span>Tidspunkt: 14:00</span>
+        <span>Sted: Sportshal</span>
+        <span>Alder: 25</span>
+      </div>
     </div>
 
-    <div id="activitiesContainer">
-
+    <div id="activitiesContainer"></div>
     </div>
     <!-- Footer with buttons -->
     <footer id="footer" class="bg-light">
-        <a href="VennerIda.html">
+      <a href="VennerIda.html">
         <button type="button" class="btn btn-primary mx-5">Venner</button></a>
-       <a href="aktivitetervenner.html">
-    <button type="button" class="btn btn-primary mx-6">Events</button></a>
+      <a href="aktivitetervenner.html">
+        <button type="button" class="btn btn-primary mx-6">Events</button></a>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="script.js"></script>
     <script>
-        const usernamedisplay = document.getElementById('username_display');
-        usernamedisplay.textContent = loggedInUser?.username;
+      const usernamedisplay = document.getElementById("username_display");
+      usernamedisplay.textContent = loggedInUser?.username;
 
-        // Hent aktiviteter fra localStorage
-const activities = JSON.parse(localStorage.getItem("activities")) || [];
+      // Hent aktiviteter fra localStorage
+      const activities = JSON.parse(localStorage.getItem("activities")) || [];
 
-// Vælg det element, hvor aktiviteterne skal indsættes
-const activitiesContainer = document.querySelector("#activitiesContainer");
+      // Vælg det element, hvor aktiviteterne skal indsættes
+      const activitiesContainer = document.querySelector(
+        "#activitiesContainer"
+      );
 
-// Iterer over aktiviteterne og generer HTML for hver
-activities.forEach(activity => {
-    // Opret HTML-strukturen for hver aktivitet
-    const activityHTML = `
+      // Iterer over aktiviteterne og generer HTML for hver
+      activities.forEach((activity) => {
+        // Opret HTML-strukturen for hver aktivitet
+        const activityHTML = `
         <div class="activity">
-            <img src="${activity.image || 'media/default.jpg'}" alt="${activity.name}">
+            <a href="aktivitet.html?id=${activity.id}">
+                <img src="${activity.image || "media/default.jpg"}" alt="${
+          activity.name
+        }">
+            </a>
             <div class="text-overlay">${activity.name}</div>
             <div class="info">
                 <span>Tidspunkt: ${activity.time}</span>
@@ -146,10 +181,9 @@ activities.forEach(activity => {
         </div>
     `;
 
-    // Indsæt den genererede HTML i containeren
-    activitiesContainer.insertAdjacentHTML("beforeend", activityHTML);
-});
-
+        // Indsæt den genererede HTML i containeren
+        activitiesContainer.insertAdjacentHTML("beforeend", activityHTML);
+      });
     </script>
-</body>
+  </body>
 </html>
