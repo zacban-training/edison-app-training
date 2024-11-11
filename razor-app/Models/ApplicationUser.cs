@@ -13,5 +13,9 @@ namespace Razor_App.Models
         public DateOnly DateOfBirth { get; set; }
         public string City {get; set;} = string.Empty;
         public string Municipal {get; set;} = string.Empty;
+
+        public virtual ICollection<Friendship> Friendships { get; set; }
+
+        public virtual ICollection<Friendship> FriendOf { get; set; }
     }
 }
