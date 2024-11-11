@@ -72,3 +72,17 @@ function login() {
         alert('Login failed');
     }
 }
+
+function createEvent() {
+    const event = {
+        title: document.getElementById('title').value,
+        description: document.getElementById('description').value,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        location: document.getElementById('location').value
+    };
+
+    const events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+    events.push(event);
+    localStorage.setItem('events', JSON.stringify(events));
+}

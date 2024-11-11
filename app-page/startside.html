@@ -107,6 +107,10 @@
             <span>Alder: 25</span>
         </div>
     </div>
+
+    <div id="activitiesContainer">
+
+    </div>
     <!-- Footer with buttons -->
     <footer id="footer" class="bg-light">
         <a href="VennerIda.html">
@@ -120,6 +124,32 @@
     <script>
         const usernamedisplay = document.getElementById('username_display');
         usernamedisplay.textContent = loggedInUser?.username;
+
+        // Hent aktiviteter fra localStorage
+const activities = JSON.parse(localStorage.getItem("activities")) || [];
+
+// Vælg det element, hvor aktiviteterne skal indsættes
+const activitiesContainer = document.querySelector("#activitiesContainer");
+
+// Iterer over aktiviteterne og generer HTML for hver
+activities.forEach(activity => {
+    // Opret HTML-strukturen for hver aktivitet
+    const activityHTML = `
+        <div class="activity">
+            <img src="${activity.image || 'media/default.jpg'}" alt="${activity.name}">
+            <div class="text-overlay">${activity.name}</div>
+            <div class="info">
+                <span>Tidspunkt: ${activity.time}</span>
+                <span>Sted: ${activity.location}</span>
+                <span>Beskrivelse: ${activity.description}</span>
+            </div>
+        </div>
+    `;
+
+    // Indsæt den genererede HTML i containeren
+    activitiesContainer.insertAdjacentHTML("beforeend", activityHTML);
+});
+
     </script>
 </body>
 </html>
