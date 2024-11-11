@@ -7,8 +7,8 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <div class="logo-small" style="display:flex;flex-direction:row; gap:.5rem;align-items:center;">
-        <img src="~/media/logo.webp" alt="logo" style="width:75px" />
-        <div class="pacifico-regular logo-text" style="font-size:1.75rem;">Friendl<span style="color:#CC0000">y</span></div>
+        <a asp-area="" asp-page="/Index" class="nav-link text-dark"><img src="~/media/logo.webp" alt="logo" style="width:75px" /></a>
+        <div class="pacifico-regular logo-text" style="font-size:1.75rem;">Friend<span style="color:#CC0000">ly</span></div>
     </div>
 }
 <ul class="navbar-nav" style="width:100%;">
@@ -17,9 +17,6 @@
         <li class="nav-item">
             <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i
                     class="bi bi-person-circle"></i> @UserManager.GetUserName(User)!</a>
-        </li>
-        <li class="nav-item">
-            <div id="dateTime"></div>
         </li>
         <li class="nav-item">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout"
