@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktivitet Detaljer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .detail-container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .detail-container img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .detail-container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .detail-container p {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="detail-container" id="detailContainer">
+        <!-- Aktivitetens detaljer indsættes her -->
+    </div>
+
+    <script>
+        // Hent 'id' fra URL-query
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedId = urlParams.get("id");
+
+        // Hent aktiviteter fra localStorage og find den valgte aktivitet
+        const activities = JSON.parse(localStorage.getItem("activities")) || [];
+        const activity = activities.find(act => act.id == selectedId);
+
+        // Vis aktivitetens detaljer, hvis den blev fundet
+        if (activity) {
+            const detailContainer = document.getElementById("detailContainer");
+            detailContainer.innerHTML = `
+                <img src="${activity.image || 'media/default.jpg'}" alt="${activity.name}">
+                <h2>${activity.name}</h2>
+                <p><strong>Tidspunkt:</strong> ${activity.time}</p>
+                <p><strong>Sted:</strong> ${activity.location}</p>
+                <p><strong>Beskrivelse:</strong> ${activity.description}</p>
+            `;
+        } else {
+            // Hvis aktiviteten ikke findes
+            document.getElementById("detailContainer").innerHTML = "<p>Aktivitet ikke fundet.</p>";
+        }
+    </script>
+</body>
+</html>
